@@ -1,5 +1,7 @@
 package lt.rieske.kata.minesweeper;
 
+import java.util.stream.IntStream;
+
 public class Board {
     private final boolean[][] mines;
 
@@ -15,14 +17,9 @@ public class Board {
     }
 
     public int adjacentMines(int x, int y) {
-        int adjacentMines = 0;
-        for (int i = x-1; i <= x+1; ++i) {
-            for (int j = y-1; j <= y+1; ++j) {
-                if (isMine(i, j)) {
-                    ++adjacentMines;
-                }
-            }
-        }
-        return adjacentMines;
+        return IntStream.rangeClosed(x - 1, x + 1)
+                .map(i -> IntStream.rangeClosed(y - 1, y + 1)
+                        .map(j -> isMine(i, j) ? 1 : 0).sum())
+                .sum();
     }
 }
