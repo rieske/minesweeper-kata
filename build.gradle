@@ -13,24 +13,28 @@ repositories {
     mavenCentral()
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
+tasks {
+    wrapper {
+        gradleVersion = "5.6.4"
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
+    }
+
+    checkstyle {
+        configFile = new File(rootDir, "checkstyle.xml")
     }
 }
 
-checkstyle {
-    configFile = new File(rootDir, 'checkstyle.xml')
-}
-
 dependencies {
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.assertj:assertj-core:3.14.0'
-    testCompile 'org.mockito:mockito-core:3.1.0'
+    testCompile("junit:junit:4.12")
+    testCompile("org.assertj:assertj-core:3.14.0")
+    testCompile("org.mockito:mockito-core:3.1.0")
 }
 
-wrapper {
-    gradleVersion = '5.6.4'
-}
+
 
