@@ -36,5 +36,3 @@ dependencies {
     testCompile("org.mockito:mockito-core:3.2.0")
 }
 
-
-
