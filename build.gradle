@@ -1,7 +1,7 @@
 plugins {
-    id "java"
-    id "jacoco"
-    id "checkstyle"
+    id("java")
+    id("jacoco")
+    id("checkstyle")
 }
 
 java {
@@ -13,26 +13,20 @@ repositories {
     mavenCentral()
 }
 
-tasks {
-    wrapper {
-        gradleVersion = "5.6.4"
-    }
+checkstyle {
+    configFile = new File(rootDir, "checkstyle.xml")
+}
 
-    jacocoTestReport {
-        reports {
-            xml.enabled = true
-            html.enabled = true
-        }
-    }
-
-    checkstyle {
-        configFile = new File(rootDir, "checkstyle.xml")
+tasks.named("jacocoTestReport") {
+    reports {
+        xml.enabled = true
+        html.enabled = true
     }
 }
 
 dependencies {
-    testCompile("junit:junit:4.13")
-    testCompile("org.assertj:assertj-core:3.19.0")
-    testCompile("org.mockito:mockito-core:3.5.13")
+    testImplementation("junit:junit:4.13")
+    testImplementation("org.assertj:assertj-core:3.19.0")
+    testImplementation("org.mockito:mockito-core:3.5.13")
 }
 
