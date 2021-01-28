@@ -1,13 +1,13 @@
 package lt.rieske.kata.minesweeper;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BoardTest {
+import org.junit.jupiter.api.Test;
+
+class BoardTest {
 
     @Test
-    public void boardWithoutMinesContainsNoMines() {
+    void boardWithoutMinesContainsNoMines() {
         int length = 4;
         int width = 4;
         Board board = new BoardBuilder(length, width).build();
@@ -20,7 +20,7 @@ public class BoardTest {
     }
 
     @Test
-    public void onlyMinedFieldsContainMines() {
+    void onlyMinedFieldsContainMines() {
         int length = 4;
         int width = 4;
 
@@ -40,7 +40,7 @@ public class BoardTest {
     }
 
     @Test
-    public void oneAdjacentMineAroundCentralMine() {
+    void oneAdjacentMineAroundCentralMine() {
         int length = 3;
         int width = 3;
 
@@ -58,7 +58,7 @@ public class BoardTest {
     }
 
     @Test
-    public void exampleBoardWithMines() {
+    void exampleBoardWithMines() {
         /*
         *100
         2210
