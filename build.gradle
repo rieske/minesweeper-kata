@@ -25,7 +25,7 @@ tasks.named("jacocoTestReport") {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13")
+    testImplementation("junit:junit:4.13.1")
     testImplementation("org.assertj:assertj-core:3.19.0")
 }
 
